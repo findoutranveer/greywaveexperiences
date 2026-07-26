@@ -467,6 +467,16 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
   *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
 }
+
+.hero-video-desktop,.hero-video-mobile{
+position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+}
+.hero-video-mobile{display:none;}
+@media(max-width:768px){
+.hero-video-desktop{display:none;}
+.hero-video-mobile{display:block;}
+}
+
 </style>
 
 <link href="https://greywaveexperiences.com/" rel="canonical"/>
@@ -482,8 +492,25 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"TravelAgency","name":"Greywave Experiences","url":"https://greywaveexperiences.com","logo":"https://greywaveexperiences.com/favicon.png","sameAs":["https://www.instagram.com/greywaveexperiences/"]}
 </script>
+
+<link rel="preload" href="hero-desktop.mp4" as="video">
+<link rel="preload" href="hero-mobile.mp4" as="video">
+<meta property="og:title" content="Greywave Experiences">
+<meta property="og:description" content="Luxury Heritage Journeys in Rajasthan">
+<meta property="og:image" content="poster-desktop.jpg">
+<meta name="theme-color" content="#0D0D0D">
+
 </head>
 <body>
+<div class="hero-video-wrapper" style="position:fixed;inset:0;overflow:hidden;z-index:-10;">
+<video class="hero-video-desktop" autoplay muted loop playsinline preload="auto" poster="poster-desktop.jpg">
+<source src="hero-desktop.mp4" type="video/mp4">
+</video>
+<video class="hero-video-mobile" autoplay muted loop playsinline preload="auto" poster="poster-mobile.jpg">
+<source src="hero-mobile.mp4" type="video/mp4">
+</video>
+</div>
+
 <div id="pre">
 <div>
 <div class="mk"></div>
