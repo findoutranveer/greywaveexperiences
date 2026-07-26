@@ -21,20 +21,16 @@
 
 <!--
   ============================================================
-  PHOTOGRAPHY & VIDEO
+  ADDING YOUR PHOTOGRAPHY
   ============================================================
-  Every image below is a free-licence placeholder:
-    · stills  — Unsplash  (unsplash.com/license)
-    · hero video + poster — Pexels (pexels.com/license)
-  Both allow commercial use with no attribution required.
+  Every image slot below is marked with  style="--img:url('')"
+  Paste your image URL between the quotes. That's the only edit.
 
-  TO SWAP IN YOUR OWN, edit the url inside the slot:
-      style="--img:url('https://yoursite.com/amer-dawn.jpg')"
-  and for the hero, the <source> and poster on <video class="hero-vid">.
+      style="--img:url('https://yoursite.com/amer-fort.jpg')"
 
-  Slots are labelled in the HTML: SLOT - HERO, SLOT - AMER, etc.
-  If any image fails to load, a sand-and-gold wash with the wave
-  emblem shows instead, so the page never looks broken.
+  Until then each slot shows a branded sand-and-gold wash with
+  the wave emblem, so the page still reads as finished.
+  Slots are labelled in the HTML: SLOT — HERO, SLOT — AMER, etc.
   ============================================================
 -->
 
@@ -229,6 +225,11 @@ nav:not(.solid) .burger span{background:var(--white)}
   opacity:0;transition:opacity 1.6s var(--expo);
 }
 .hero-vid.ready{opacity:1}
+.hero-vid-m{display:none}
+@media(max-width:820px){
+  .hero-vid-d{display:none}
+  .hero-vid-m{display:block}
+}
 @media(prefers-reduced-motion:reduce){.hero-vid{display:none}}
 
 /* ═══════════ SECTION SHELL ═══════════ */
@@ -440,6 +441,7 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
   .hour-panel .frame{aspect-ratio:16/10}
 }
 @media(max-width:820px){
+  .hero .frame{--img:url('assets/poster-mobile.jpg')}
   .burger{display:flex}
   .menu{
     position:fixed;inset:0 0 0 auto;width:min(80vw,340px);background:var(--sand);
@@ -500,11 +502,14 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
 <!-- ══════════ HERO ══════════ -->
 <header class="hero">
   <!-- SLOT — HERO : a wide shot of Amer Fort at first light works best here -->
-  <div class="frame scrim" style="--img:url('https://images.pexels.com/videos/17453761/pexels-photo-17453761.jpeg?auto=compress&cs=tinysrgb&w=1920')">
-    <video class="hero-vid" id="heroVid" muted loop playsinline preload="none"
-           poster="https://images.pexels.com/videos/17453761/pexels-photo-17453761.jpeg?auto=compress&cs=tinysrgb&w=1920" aria-hidden="true" tabindex="-1">
-      <source data-src="https://videos.pexels.com/video-files/17453761/17453761-hd_1920_1080_24fps.mp4" type="video/mp4">
-      <source data-src="https://videos.pexels.com/video-files/17453761/17453761-uhd_2560_1440_24fps.mp4" type="video/mp4">
+  <div class="frame scrim" style="--img:url('assets/poster-desktop.jpg')">
+    <video class="hero-vid hero-vid-d" id="heroVidD" muted loop playsinline preload="none"
+           poster="assets/poster-desktop.jpg" aria-hidden="true" tabindex="-1">
+      <source data-src="assets/hero-desktop.mp4" type="video/mp4">
+    </video>
+    <video class="hero-vid hero-vid-m" id="heroVidM" muted loop playsinline preload="none"
+           poster="assets/poster-mobile.jpg" aria-hidden="true" tabindex="-1">
+      <source data-src="assets/hero-mobile.mp4" type="video/mp4">
     </video>
   </div>
   <div class="hero-in">
@@ -560,7 +565,7 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
     <div style="margin-top:52px">
       <div class="hour-panel on" data-p="1">
         <!-- SLOT — FIRST LIGHT -->
-        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1709394173063-903ebda3dc91?auto=format&fit=crop&q=72&w=1200')"><div class="wm"><i></i></div></div>
+        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1709394173063-903ebda3dc91?auto=format&fit=crop&q=72&w=1200')"><div class="wm"><i></i><span>Slot — first light</span></div></div>
         <div class="hour-copy">
           <div class="hour-time">05:40</div>
           <h3>Amer before the gates open</h3>
@@ -576,7 +581,7 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
 
       <div class="hour-panel" data-p="2">
         <!-- SLOT — MID MORNING -->
-        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1650355719397-a6f09db66464?auto=format&fit=crop&q=72&w=1200')"><div class="wm"><i></i></div></div>
+        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1650355719397-a6f09db66464?auto=format&fit=crop&q=72&w=1200')"><div class="wm"><i></i><span>Slot — mid morning</span></div></div>
         <div class="hour-copy">
           <div class="hour-time">08:00</div>
           <h3>The city at working pace</h3>
@@ -592,7 +597,7 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
 
       <div class="hour-panel" data-p="3">
         <!-- SLOT — GOLDEN HOUR -->
-        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1631867675167-90a456a90863?auto=format&fit=crop&q=72&w=1200')"><div class="wm"><i></i></div></div>
+        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1631867675167-90a456a90863?auto=format&fit=crop&q=72&w=1200')"><div class="wm"><i></i><span>Slot — golden hour</span></div></div>
         <div class="hour-copy">
           <div class="hour-time">16:30</div>
           <h3>Sandstone, at the temperature it was cut for</h3>
@@ -608,7 +613,7 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
 
       <div class="hour-panel" data-p="4">
         <!-- SLOT — BLUE HOUR -->
-        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1723529983733-9a30e30d841d?auto=format&fit=crop&q=72&w=1200')"><div class="wm"><i></i></div></div>
+        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1723529983733-9a30e30d841d?auto=format&fit=crop&q=72&w=1200')"><div class="wm"><i></i><span>Slot — blue hour</span></div></div>
         <div class="hour-copy">
           <div class="hour-time">18:15</div>
           <h3>When the fort empties and the city lights up</h3>
@@ -636,7 +641,7 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
 
       <article class="card rv">
         <!-- SLOT — JOURNEY 01 -->
-        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1705861144929-91df892af5d6?auto=format&fit=crop&q=72&w=900')"><div class="wm"><i></i></div></div>
+        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1705861144929-91df892af5d6?auto=format&fit=crop&q=72&w=900')"><div class="wm"><i></i><span>Slot — Three Forts</span></div></div>
         <div class="card-body">
           <span class="eyebrow">Route 01 · 9 hours</span>
           <h3>Three Forts Jeep Safari</h3>
@@ -656,7 +661,7 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
         <!-- SLOT — JOURNEY 02 -->
         <div class="frame" style="--img:url('https://images.unsplash.com/photo-1643542624665-da62a6fe6d4b?auto=format&fit=crop&q=72&w=900')">
           <span class="card-tag">Signature</span>
-          <div class="wm"><i></i></div>
+          <div class="wm"><i></i><span>Slot — Jaipur in a Day</span></div>
         </div>
         <div class="card-body">
           <span class="eyebrow">Route 02 · Full day</span>
@@ -675,7 +680,7 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
 
       <article class="card rv">
         <!-- SLOT — JOURNEY 03 -->
-        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1595280769531-a25c4c76116a?auto=format&fit=crop&q=72&w=900')"><div class="wm"><i></i></div></div>
+        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1595280769531-a25c4c76116a?auto=format&fit=crop&q=72&w=900')"><div class="wm"><i></i><span>Slot — Nahargarh Sunset</span></div></div>
         <div class="card-body">
           <span class="eyebrow">Route 03 · 4 hours</span>
           <h3>Nahargarh Sunset Loop</h3>
@@ -706,7 +711,7 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
     <article class="feature rv">
       <div class="feature-img">
         <!-- SLOT — AMER -->
-        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1524309784716-6a4be8299c7f?auto=format&fit=crop&q=72&w=1000')"><div class="wm"><i></i></div></div>
+        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1524309784716-6a4be8299c7f?auto=format&fit=crop&q=72&w=1000')"><div class="wm"><i></i><span>Slot — Amer Fort</span></div></div>
       </div>
       <div class="feature-txt">
         <div class="feature-num">01</div>
@@ -720,7 +725,7 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
     <article class="feature rv">
       <div class="feature-img">
         <!-- SLOT — JAIGARH -->
-        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1653495484044-479eeabe94ab?auto=format&fit=crop&q=72&w=1000')"><div class="wm"><i></i></div></div>
+        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1653495484044-479eeabe94ab?auto=format&fit=crop&q=72&w=1000')"><div class="wm"><i></i><span>Slot — Jaigarh Fort</span></div></div>
       </div>
       <div class="feature-txt">
         <div class="feature-num">02</div>
@@ -734,7 +739,7 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
     <article class="feature rv">
       <div class="feature-img">
         <!-- SLOT — NAHARGARH -->
-        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1649074705058-9d1579429e37?auto=format&fit=crop&q=72&w=1000')"><div class="wm"><i></i></div></div>
+        <div class="frame" style="--img:url('https://images.unsplash.com/photo-1649074705058-9d1579429e37?auto=format&fit=crop&q=72&w=1000')"><div class="wm"><i></i><span>Slot — Nahargarh Fort</span></div></div>
       </div>
       <div class="feature-txt">
         <div class="feature-num">03</div>
@@ -994,7 +999,7 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
       </div>
     </div>
     <div class="fbot">
-      <span>© 2026 Greywave Experiences LLP · All rights reserved<br><small style="opacity:.6">Placeholder photography via Unsplash &amp; Pexels — replace with your own</small></span>
+      <span>© 2026 Greywave Experiences LLP · All rights reserved<br><small style="opacity:.6">Hero film: Greywave · still photography placeholders via Unsplash</small></span>
       <div class="fsocial">
         <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://pinterest.com/" target="_blank" rel="noopener">Pinterest</a>
@@ -1016,16 +1021,16 @@ footer ul a:hover{color:var(--gold);padding-left:5px}
     setTimeout(function(){ $('#pre').classList.add('gone'); },1300);
   });
 
-  /* hero video — loaded only when it won't hurt the visitor */
+  /* hero video — load only the one shown for this viewport */
   (function(){
-    var v=$('#heroVid'); if(!v) return;
+    var pick = window.matchMedia('(max-width: 820px)').matches ? $('#heroVidM') : $('#heroVidD');
+    if(!pick) return;
     var conn=navigator.connection||{};
-    var slow=conn.saveData||/2g/.test(conn.effectiveType||'');
-    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(slow||reduce) return;                      // poster image stays
-    $$('source',v).forEach(function(s){ s.src=s.dataset.src; });
-    v.load();
-    v.addEventListener('canplay',function(){ v.classList.add('ready'); v.play().catch(function(){}); },{once:true});
+    if(conn.saveData || /2g/.test(conn.effectiveType||'')) return;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    $$('source',pick).forEach(function(s){ s.src=s.dataset.src; });
+    pick.load();
+    pick.addEventListener('canplay',function(){ pick.classList.add('ready'); pick.play().catch(function(){}); },{once:true});
   })();
 
   /* nav */
