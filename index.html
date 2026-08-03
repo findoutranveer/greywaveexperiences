@@ -1034,28 +1034,34 @@ position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
   })();
 
 
-  /* smooth-scroll without leaving #hash in the address bar */
-  function stripHash(){
-    if(history.replaceState) history.replaceState(null,'',location.pathname+location.search);
+  /* pretty section paths in the URL: greywaveexperiences.com/journeys (no #) */
+  function setPath(id){
+    // id is like "#journeys" -> write "/journeys"; "#" or empty -> root
+    var slug = (id && id.length>1) ? '/'+id.slice(1) : '/';
+    if(history.replaceState) history.replaceState(null,'',slug+location.search);
   }
-  // clean a hash that's already in the URL (e.g. arriving at .com/#journeys)
-  if(location.hash){
-    var landing=document.querySelector(location.hash);
-    stripHash();
-    if(landing) setTimeout(function(){ landing.scrollIntoView(); }, 0);
-  }
-  // intercept every in-page anchor, capture phase so nothing beats us to it
+  // arriving at a /section path (or an old #section link): scroll there, keep the clean path
+  (function(){
+    var fromHash = location.hash ? location.hash.slice(1) : '';
+    var fromPath = location.pathname.replace(/^\/|\/$/g,'');   // "journeys"
+    var slug = fromHash || fromPath;
+    if(!slug) return;
+    var t = document.getElementById(slug);
+    if(t){
+      if(history.replaceState) history.replaceState(null,'','/'+slug+location.search);
+      setTimeout(function(){ t.scrollIntoView(); }, 0);
+    }
+  })();
+  // intercept every in-page anchor (capture phase so nothing beats us to it)
   document.addEventListener('click',function(e){
-    var a=e.target.closest && e.target.closest('a[href^="#"]');
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
     if(!a) return;
-    var id=a.getAttribute('href');
+    var id = a.getAttribute('href');
     e.preventDefault();
     if(id==='#'||id===''){ window.scrollTo({top:0,behavior:'smooth'}); }
     else { var t=document.querySelector(id); if(t) t.scrollIntoView({behavior:'smooth',block:'start'}); }
-    stripHash();
+    setPath(id);
   }, true);
-  // belt-and-braces: if a hash ever appears, wipe it
-  window.addEventListener('hashchange', stripHash);
 
   /* nav */
   var nav=$('#nav'), menu=$('#menu'), burger=$('#burger');
