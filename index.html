@@ -122,7 +122,7 @@ em{font-style:italic;color:var(--gold)}
   font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(40,40,40,.42);
 }
 .frame::after{
-  content:'';position:absolute;inset:0;
+  content:'';position:absolute;inset:0;z-index:0;
   background-image:var(--img,none);background-size:cover;background-position:center;
   transition:transform 1.5s var(--expo);
 }
@@ -212,7 +212,6 @@ overflow:hidden;
   color:rgba(250,246,240,.86);max-width:640px;margin:0 auto 46px;line-height:1.55;
 }
 .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
 .hero-vid{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;
@@ -485,15 +484,6 @@ overflow:hidden;
   .rv{opacity:1;transform:none}
 }
 
-.hero-video-desktop,.hero-video-mobile{
-position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
-}
-.hero-video-mobile{display:none;}
-@media(max-width:768px){
-.hero-video-desktop{display:none;}
-.hero-video-mobile{display:block;}
-}
-
 </style>
 
 <link href="https://greywaveexperiences.com/" rel="canonical"/>
@@ -549,7 +539,7 @@ position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
 </div>
 <div class="hero-in">
 <h1 class="display d1">Where will the<br/><em>wave</em> take you</h1>
-<p>Tailor-made journeys through the forts of Jaipur.</p>
+<p>Thoughtfully designed journeys through the forts and beyond.</p>
 <div class="hero-btns">
 <a class="btn btn-gold" href="#journeys">Explore our trips</a>
 </div>
