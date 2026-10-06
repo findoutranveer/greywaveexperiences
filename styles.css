@@ -388,3 +388,57 @@ em{font-style:italic;color:var(--sepia)}
 .nav-center{display:flex;justify-content:center;flex:1}
 a.skip{position:absolute;left:-9999px}
 a.skip:focus{left:16px;top:12px;z-index:2000;background:var(--void);color:#fff;padding:10px 16px}
+
+/* ============================================================
+   V2.1 — logo, intro, hero video, real-image system
+   ============================================================ */
+
+/* ---- Brand logo in nav (swaps colour<->white over dark hero) ---- */
+.brand{position:relative;display:inline-flex;align-items:center;line-height:0}
+.brand img{height:34px;width:auto;display:block}
+.brand .logo-white{position:absolute;left:0;top:50%;transform:translateY(-50%);opacity:0;transition:opacity .45s var(--expo)}
+.brand .logo-color{opacity:1;transition:opacity .45s var(--expo)}
+.site-nav.over-media:not(.solid) .brand .logo-color{opacity:0}
+.site-nav.over-media:not(.solid) .brand .logo-white{opacity:1}
+@media(max-width:860px){.brand img{height:30px}}
+
+/* ---- Logo in mobile menu + footer ---- */
+.mm-logo{line-height:0;display:inline-block;margin-bottom:30px}
+.mm-logo img{height:32px;width:auto}
+.footer-brand .fb-logo{height:44px;width:auto;display:block;margin-bottom:20px}
+
+/* ---- Intro splash (homepage): gold E monogram -> full wordmark ---- */
+html.intro-lock,body.intro-lock{overflow:hidden!important}
+.intro{position:fixed;inset:0;z-index:3000;background:var(--void);display:flex;align-items:center;justify-content:center;cursor:pointer;
+  animation:introAuto 0s linear 4.6s forwards}
+.intro.hide{opacity:0;visibility:hidden;transition:opacity .7s var(--expo),visibility 0s .7s}
+.intro-stage{display:grid;place-items:center;padding:24px}
+.intro-mark,.intro-word{grid-area:1/1}
+.intro-mark{width:clamp(84px,13vw,126px);height:auto;opacity:0;transform:scale(.82);
+  animation:introMarkIn .85s var(--expo) .2s forwards, introMarkOut .55s var(--expo) 1.3s forwards}
+.intro-word{height:clamp(30px,4.6vw,54px);width:auto;opacity:0;transform:translateY(8px);
+  animation:introWordIn .85s var(--expo) 1.5s forwards}
+@keyframes introMarkIn{to{opacity:1;transform:scale(1)}}
+@keyframes introMarkOut{to{opacity:0;transform:scale(1.05)}}
+@keyframes introWordIn{to{opacity:1;transform:none}}
+@keyframes introAuto{to{opacity:0;visibility:hidden}}
+@media(prefers-reduced-motion:reduce){
+  .intro{animation:none}
+  .intro-mark,.intro-word{animation:none;opacity:1;transform:none}
+}
+
+/* ---- Hero video ---- */
+.hero-media video{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ---- Real-image system: drop files into assets/images/, slots fill in ----
+   Each slot gets its photo via an inline --img var, with the sand gradient
+   as a graceful fallback if the file isn't there yet. ---- */
+.ph,.dph,.f-portrait .ph{
+  background-image:var(--img, none),
+    radial-gradient(90% 70% at 65% 20%, rgba(194,154,91,.22), transparent 60%),
+    linear-gradient(160deg,#e7dbc6 0%, #d8c8ab 55%, #cbb896 100%);
+  background-size:cover,cover,cover;
+  background-position:center,center,center;
+  background-repeat:no-repeat,no-repeat,no-repeat;
+}
+.ph::after,.dph::after{opacity:var(--cap-op,1)}

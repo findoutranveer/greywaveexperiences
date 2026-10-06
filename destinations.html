@@ -8,13 +8,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-nav" id="nav">
-  <a class="brand" href="index.html">Greywave<span>Experiences</span></a>
+  <a class="brand" href="index.html" aria-label="Greywave Experiences — home"><img class="logo-color" src="assets/logo-color.png" alt="Greywave Experiences" width="616" height="240"><img class="logo-white" src="assets/logo-white.png" alt="" aria-hidden="true" width="616" height="240"></a>
   <nav class="nav-center" aria-label="Primary"><ul class="nav-links">
     <li><a href="experiences.html">Experiences</a></li>
     <li><a href="destinations.html" class="active">Destinations</a></li>
@@ -30,6 +31,7 @@
 </header>
 <div class="mobile-menu" id="mobileMenu">
   <button class="mm-close" id="mmClose" aria-label="Close menu"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M5 5L21 21M21 5L5 21" stroke="#8A6E4E" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+  <a class="mm-logo" href="index.html"><img src="assets/logo-color.png" alt="Greywave Experiences" width="616" height="240"></a>
   <a class="mm-phone" href="https://wa.me/918400500528" target="_blank" rel="noopener">+91 84 005 005 28</a>
   <ul class="mm-links">
     <li><a href="experiences.html">Experiences</a></li>
@@ -54,12 +56,12 @@
 <section class="section">
   <div class="wrap">
     <div class="dest-grid rv">
-      <a class="dest" href="contact.html"><div class="dph" data-cap="Jaipur"></div><div class="dbody"><h3>Jaipur</h3><div class="dsub">The Pink City</div></div></a>
-      <a class="dest" href="contact.html"><div class="dph" data-cap="Jodhpur"></div><div class="dbody"><h3>Jodhpur</h3><div class="dsub">The Blue City</div></div></a>
-      <a class="dest" href="contact.html"><div class="dph" data-cap="Udaipur"></div><div class="dbody"><h3>Udaipur</h3><div class="dsub">Lakes &amp; romance</div></div></a>
-      <a class="dest" href="contact.html"><div class="dph" data-cap="Jaisalmer"></div><div class="dbody"><h3>Jaisalmer</h3><div class="dsub">The Thar</div></div></a>
-      <a class="dest" href="contact.html"><div class="dph" data-cap="Ranthambore"></div><div class="dbody"><h3>Ranthambore</h3><div class="dsub">Wild Rajasthan</div></div></a>
-      <a class="dest" href="contact.html"><div class="dph" data-cap="Pushkar"></div><div class="dbody"><h3>Pushkar</h3><div class="dsub">Faith &amp; tradition</div></div></a>
+      <a class="dest" href="contact.html"><div class="dph" style="--img:url('assets/images/jaipur.jpg');--cap-op:0" data-cap="Jaipur"></div><div class="dbody"><h3>Jaipur</h3><div class="dsub">The Pink City</div></div></a>
+      <a class="dest" href="contact.html"><div class="dph" style="--img:url('assets/images/jodhpur.jpg');--cap-op:0" data-cap="Jodhpur"></div><div class="dbody"><h3>Jodhpur</h3><div class="dsub">The Blue City</div></div></a>
+      <a class="dest" href="contact.html"><div class="dph" style="--img:url('assets/images/udaipur.jpg');--cap-op:0" data-cap="Udaipur"></div><div class="dbody"><h3>Udaipur</h3><div class="dsub">Lakes &amp; romance</div></div></a>
+      <a class="dest" href="contact.html"><div class="dph" style="--img:url('assets/images/jaisalmer.jpg');--cap-op:0" data-cap="Jaisalmer"></div><div class="dbody"><h3>Jaisalmer</h3><div class="dsub">The Thar</div></div></a>
+      <a class="dest" href="contact.html"><div class="dph" style="--img:url('assets/images/ranthambore.jpg');--cap-op:0" data-cap="Ranthambore"></div><div class="dbody"><h3>Ranthambore</h3><div class="dsub">Wild Rajasthan</div></div></a>
+      <a class="dest" href="contact.html"><div class="dph" style="--img:url('assets/images/pushkar.jpg');--cap-op:0" data-cap="Pushkar"></div><div class="dbody"><h3>Pushkar</h3><div class="dsub">Faith &amp; tradition</div></div></a>
     </div>
   </div>
 </section>
@@ -80,7 +82,7 @@
     </div>
     <div class="rv" style="margin-top:36px">
       <div class="dest wide" style="border:1px solid var(--line);background:var(--void)">
-        <div class="dph" data-cap="Built around your journey"></div>
+        <div class="dph" style="--img:url('assets/images/beyond.jpg');--cap-op:0" data-cap="Built around your journey"></div>
         <div class="dbody"><h3>Beyond</h3><div class="dsub">Built around your journey</div></div>
       </div>
     </div>
@@ -104,7 +106,7 @@
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="fb-name">Greywave Experiences</div>
+        <img class="fb-logo" src="assets/logo-white.png" alt="Greywave Experiences" width="616" height="240">
         <p>Your Rajasthan partner on the ground. People, places and perspectives — journeys designed with care and run by local hands.</p>
         <div class="locs">Jaipur · Rajasthan · India</div>
       </div>

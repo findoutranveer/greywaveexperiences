@@ -6,6 +6,32 @@
   var WA_NUMBER = "918400500528";
   function waLink(msg){ return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg); }
 
+  /* ---- intro splash (homepage only): plays once per session ---- */
+  (function(){
+    var intro = document.getElementById("intro");
+    if(!intro) return;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var seen = false;
+    try{ seen = sessionStorage.getItem("gw_intro") === "1"; }catch(e){}
+    if(reduce || seen){
+      if(intro.parentNode) intro.parentNode.removeChild(intro);
+      return;
+    }
+    document.documentElement.classList.add("intro-lock");
+    document.body.classList.add("intro-lock");
+    var done = false;
+    function endIntro(){
+      if(done) return; done = true;
+      intro.classList.add("hide");
+      document.documentElement.classList.remove("intro-lock");
+      document.body.classList.remove("intro-lock");
+      try{ sessionStorage.setItem("gw_intro","1"); }catch(e){}
+      setTimeout(function(){ if(intro.parentNode) intro.parentNode.removeChild(intro); }, 800);
+    }
+    var t = setTimeout(endIntro, 2600);
+    intro.addEventListener("click", function(){ clearTimeout(t); endIntro(); });
+  })();
+
   document.addEventListener("DOMContentLoaded", function(){
     var nav     = document.getElementById("nav");
     var burger  = document.getElementById("burger");
