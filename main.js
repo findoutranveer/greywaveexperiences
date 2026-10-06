@@ -11,9 +11,7 @@
     var intro = document.getElementById("intro");
     if(!intro) return;
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var seen = false;
-    try{ seen = sessionStorage.getItem("gw_intro") === "1"; }catch(e){}
-    if(reduce || seen){
+    if(reduce){
       if(intro.parentNode) intro.parentNode.removeChild(intro);
       return;
     }
@@ -25,7 +23,6 @@
       intro.classList.add("hide");
       document.documentElement.classList.remove("intro-lock");
       document.body.classList.remove("intro-lock");
-      try{ sessionStorage.setItem("gw_intro","1"); }catch(e){}
       setTimeout(function(){ if(intro.parentNode) intro.parentNode.removeChild(intro); }, 800);
     }
     var t = setTimeout(endIntro, 2600);
