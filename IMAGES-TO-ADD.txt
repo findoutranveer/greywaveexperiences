@@ -1,0 +1,26 @@
+GREYWAVE V2 — FILES TO ADD (upload to the repo ROOT, same place as index.html)
+================================================================================
+Logos, favicon and the intro are now EMBEDDED in the code — nothing to upload
+for those, they always work.
+
+ALREADY IN YOUR REPO (good — the hero will use these):
+  hero-desktop.mp4 , hero-mobile.mp4
+  poster-desktop.jpg , poster-mobile.jpg
+
+STILL TO ADD (photos — until added, each slot shows a clean sand panel, never broken):
+  jaipur.jpg        Hawa Mahal / City Palace
+  jodhpur.jpg       Mehrangarh / blue city
+  udaipur.jpg       Lake Pichola / lake palace
+  jaisalmer.jpg     Jaisalmer fort / Thar dunes
+  ranthambore.jpg   tiger / Ranthambore fort
+  pushkar.jpg       Pushkar ghats / lake
+  beyond.jpg        Rajasthan countryside / Aravalli
+  exp-jaipur-beyond.jpg   Jaipur old-city lanes
+  exp-royal-morning.jpg   Amer fort at sunrise
+  exp-craft.jpg           block printing / blue pottery
+  exp-food.jpg            Rajasthani thali / market
+  exp-slow.jpg            heritage haveli courtyard
+  exp-bespoke.jpg         luxury Rajasthan / palace
+
+Tips: 1600–2000px wide JPGs, compressed under ~300KB each.
+Free HD: pexels.com · unsplash.com

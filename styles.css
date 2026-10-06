@@ -430,7 +430,7 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
 /* ---- Hero video ---- */
 .hero-media video{width:100%;height:100%;object-fit:cover;display:block}
 
-/* ---- Real-image system: drop files into assets/images/, slots fill in ----
+/* ---- Real-image system: drop photos into the repo root, slots fill in ----
    Each slot gets its photo via an inline --img var, with the sand gradient
    as a graceful fallback if the file isn't there yet. ---- */
 .ph,.dph,.f-portrait .ph{
@@ -474,3 +474,10 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
   background:var(--logo-white-src) center/contain no-repeat;
   opacity:0;transform:translateY(8px);
   animation:introWordIn .85s var(--expo) 1.5s forwards}
+
+/* V2.3 — hero serves desktop video on wide screens, mobile video on phones */
+.hero-mobile{display:none}
+@media(max-width:860px){
+  .hero-desktop{display:none}
+  .hero-mobile{display:block}
+}
