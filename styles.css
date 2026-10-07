@@ -514,3 +514,18 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
   .hero .display{font-size:clamp(2rem,8.2vw,2.8rem);line-height:1.1;max-width:18ch}
   .hero-sub{font-size:1rem;margin:18px 0 30px}
 }
+
+/* ============================================================
+   V2.6 — hero heading smaller + ALWAYS clears the fixed nav, so
+   the eyebrow/heading can never touch the logo or menu again.
+   ============================================================ */
+.display{font-size:clamp(2rem,4.8vw,3.8rem);line-height:1.08}
+.hero{padding-top:clamp(104px,15vh,160px)}
+.hero .display{font-size:min(clamp(1.9rem,4.6vw,3.55rem), 8vh);line-height:1.09;max-width:16ch}
+.hero .eyebrow{margin-bottom:18px}
+.hero-sub{font-size:clamp(0.98rem,1.25vw,1.15rem);line-height:1.6;margin:20px 0 30px;max-width:42ch}
+@media(max-width:520px){
+  .hero{padding-top:92px}
+  .hero .display{font-size:clamp(1.9rem,8vw,2.6rem);line-height:1.12;max-width:18ch}
+  .hero-sub{font-size:0.98rem;margin:16px 0 26px}
+}
