@@ -492,3 +492,25 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
 @media(max-width:860px){
   .hero .wrap{ padding-left:var(--gutter); padding-right:var(--gutter); }
 }
+
+/* ============================================================
+   V2.5 — hero heading + subtext: smaller, comfortable line
+   spacing, and a height cap so they never overgrow on shorter
+   laptop screens. Tuned to read well at ANY screen size.
+   ============================================================ */
+.display{font-size:clamp(2.1rem,5.2vw,4.3rem);line-height:1.07}
+.hero .display{
+  font-size:min(clamp(2.1rem,5.2vw,4.3rem), 9vh);
+  line-height:1.08;
+  max-width:15ch;
+}
+.hero-sub{
+  font-size:clamp(1rem,1.3vw,1.18rem);
+  line-height:1.62;
+  margin:22px 0 34px;
+  max-width:42ch;
+}
+@media(max-width:520px){
+  .hero .display{font-size:clamp(2rem,8.2vw,2.8rem);line-height:1.1;max-width:18ch}
+  .hero-sub{font-size:1rem;margin:18px 0 30px}
+}
