@@ -520,7 +520,7 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
    the eyebrow/heading can never touch the logo or menu again.
    ============================================================ */
 .display{font-size:clamp(2rem,4.8vw,3.8rem);line-height:1.08}
-.hero{padding-top:clamp(104px,15vh,160px)}
+.hero{padding-top:clamp(112px,15vh,160px)}
 .hero .display{font-size:min(clamp(1.9rem,4.6vw,3.55rem), 8vh);line-height:1.09;max-width:16ch}
 .hero .eyebrow{margin-bottom:18px}
 .hero-sub{font-size:clamp(0.98rem,1.25vw,1.15rem);line-height:1.6;margin:20px 0 30px;max-width:42ch}
