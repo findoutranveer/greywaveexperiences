@@ -529,3 +529,6 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
   .hero .display{font-size:clamp(1.9rem,8vw,2.6rem);line-height:1.12;max-width:18ch}
   .hero-sub{font-size:0.98rem;margin:16px 0 26px}
 }
+
+/* V2.7 — city videos in destination cards (Option B: all devices) */
+.dest .dvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:var(--void)}
