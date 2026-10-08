@@ -532,3 +532,23 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
 
 /* V2.7 — city videos in destination cards (Option B: all devices) */
 .dest .dvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:var(--void)}
+
+/* V2.8 — premium hover motion on experience + destination cards */
+.sig-card .sig-media{overflow:hidden}
+.sig-card .ph{transition:transform 1.3s var(--expo),filter 1.3s var(--expo)}
+.sig-card{transition:transform .6s var(--expo),box-shadow .6s var(--expo)}
+.sig-card:hover{transform:translateY(-6px);box-shadow:0 26px 60px rgba(33,26,19,.16)}
+.sig-card:hover .ph{transform:scale(1.07);filter:saturate(1.05)}
+.sig-card .sig-body h3{transition:color .5s var(--expo)}
+.sig-card:hover .sig-body h3{color:var(--gold)}
+
+.dest{overflow:hidden}
+.dest .dvid,.dest .dph{transition:transform 1.3s var(--expo)}
+.dest:hover .dvid,.dest:hover .dph{transform:scale(1.07)}
+.dest .dbody{transition:transform .6s var(--expo)}
+.dest:hover .dbody{transform:translateY(-5px)}
+.dest::after{transition:opacity .6s var(--expo)}
+.dest:hover::after{opacity:.85}
+@media(prefers-reduced-motion:reduce){
+  .sig-card:hover,.sig-card:hover .ph,.dest:hover .dvid,.dest:hover .dph,.dest:hover .dbody{transform:none}
+}
