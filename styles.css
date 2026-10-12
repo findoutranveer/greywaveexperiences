@@ -552,3 +552,7 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
 @media(prefers-reduced-motion:reduce){
   .sig-card:hover,.sig-card:hover .ph,.dest:hover .dvid,.dest:hover .dph,.dest:hover .dbody{transform:none}
 }
+
+/* V2.9 — founder bio: readable multi-paragraph body on About */
+.founder p{max-width:60ch}
+.founder p:not(.lead){font-size:15.5px;line-height:1.78;color:#4a4038;margin-bottom:1em}
