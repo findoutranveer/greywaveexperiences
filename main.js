@@ -56,6 +56,17 @@
       }
       media.addEventListener("mouseenter", start);
       media.addEventListener("mouseleave", stop);
+
+      /* On touch / no-hover devices (and small screens), auto-play when the
+         card scrolls into view — no tap needed. */
+      var noHover = !(window.matchMedia && window.matchMedia("(hover: hover)").matches);
+      var autoplay = noHover || window.innerWidth <= 860;
+      if(autoplay && "IntersectionObserver" in window){
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(en){ en.isIntersecting ? start() : stop(); });
+        }, {threshold:0.45});
+        io.observe(media);
+      }
     });
   }
 
