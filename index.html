@@ -49,6 +49,7 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
 @media(max-width:520px){.hero{padding-top:92px}.hero .display{font-size:clamp(1.9rem,8vw,2.6rem);line-height:1.12;max-width:18ch}.hero-sub{font-size:.98rem;margin:16px 0 26px}}
 .dest .dvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:#211A13}
 .sig-card .sig-media{overflow:hidden}.sig-card .ph{transition:transform 1.3s cubic-bezier(.16,1,.3,1),filter 1.3s cubic-bezier(.16,1,.3,1)}.sig-card{transition:transform .6s cubic-bezier(.16,1,.3,1),box-shadow .6s cubic-bezier(.16,1,.3,1)}.sig-card:hover{transform:translateY(-6px);box-shadow:0 26px 60px rgba(33,26,19,.16)}.sig-card:hover .ph{transform:scale(1.07);filter:saturate(1.05)}.sig-card:hover .sig-body h3{color:#C29A5B}.dest{overflow:hidden}.dest .dvid,.dest .dph{transition:transform 1.3s cubic-bezier(.16,1,.3,1)}.dest:hover .dvid,.dest:hover .dph{transform:scale(1.07)}.dest .dbody{transition:transform .6s cubic-bezier(.16,1,.3,1)}.dest:hover .dbody{transform:translateY(-5px)}@media(prefers-reduced-motion:reduce){.sig-card:hover,.sig-card:hover .ph,.dest:hover .dvid,.dest:hover .dph,.dest:hover .dbody{transform:none}}
+.sig-media{position:relative}.sig-media .slide{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;transition:opacity 1s cubic-bezier(.16,1,.3,1);z-index:1}.sig-media .slide.on{opacity:1}
 </style>
 </head>
 <body>
@@ -163,12 +164,12 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
       <p class="lead">Not fixed packages — starting points. Each one is shaped around who's travelling and what they came to feel.</p>
     </div>
     <div class="sig-grid rv">
-      <article class="sig-card"><div class="sig-media"><div class="ph" style="--img:url('exp-jaipur-beyond.jpg');--cap-op:0" data-cap="The Jaipur Beyond"></div></div><div class="sig-body"><div class="sig-idx">Jaipur</div><h3>The Jaipur Beyond</h3><p>A different side of the Pink City — its quiet lanes, hidden crafts and rooftop hours.</p></div></article>
-      <article class="sig-card"><div class="sig-media"><div class="ph" style="--img:url('exp-royal-morning.jpg');--cap-op:0" data-cap="The Royal Morning"></div></div><div class="sig-body"><div class="sig-idx">Amber</div><h3>The Royal Morning</h3><p>Amer before the city wakes — the fort in first light, without the crowds.</p></div></article>
-      <article class="sig-card"><div class="sig-media"><div class="ph" style="--img:url('exp-craft.jpg');--cap-op:0" data-cap="Inside the Craft"></div></div><div class="sig-body"><div class="sig-idx">Culture</div><h3>Inside the Craft</h3><p>Meet the makers of Rajasthan — block printers, blue potters, miniature painters.</p></div></article>
-      <article class="sig-card"><div class="sig-media"><div class="ph" style="--img:url('exp-food.jpg');--cap-op:0" data-cap="A Taste of Rajasthan"></div></div><div class="sig-body"><div class="sig-idx">Culinary</div><h3>A Taste of Rajasthan</h3><p>Food, families and stories — a table, not a tour.</p></div></article>
-      <article class="sig-card"><div class="sig-media"><div class="ph" style="--img:url('exp-temples.jpg');--cap-op:0" data-cap="Sacred Rajasthan"></div></div><div class="sig-body"><div class="sig-idx">Temples</div><h3>Sacred Rajasthan</h3><p>Centuries-old temples and stepwells — stone carving, ritual, and the quiet of hilltop shrines.</p></div></article>
-      <article class="sig-card"><div class="sig-media"><div class="ph" style="--img:url('exp-bespoke.jpg');--cap-op:0" data-cap="Bespoke Rajasthan"></div></div><div class="sig-body"><div class="sig-idx">Bespoke</div><h3>Bespoke Rajasthan</h3><p>Built entirely around you — your pace, your interests, your Rajasthan.</p></div></article>
+      <article class="sig-card"><div class="sig-media" data-slides="exp-rajasthan.jpg,exp-rajasthan-2.jpg,exp-rajasthan-3.jpg,exp-rajasthan-4.jpg,exp-rajasthan-5.jpg,exp-rajasthan-6.jpg,exp-rajasthan-7.jpg"><div class="ph" style="--img:url('exp-rajasthan.jpg');--cap-op:0" data-cap="The Grand Rajasthan"></div></div><div class="sig-body"><div class="sig-idx">Rajasthan</div><h3>The Grand Rajasthan</h3><p>Fort cities, desert roads and lake palaces — the great Rajasthan journey, woven into one.</p></div></article>
+      <article class="sig-card"><div class="sig-media" data-slides="exp-jaipur-beyond.jpg,exp-jaipur-beyond-2.jpg,exp-jaipur-beyond-3.jpg,exp-jaipur-beyond-4.jpg,exp-jaipur-beyond-5.jpg,exp-jaipur-beyond-6.jpg,exp-jaipur-beyond-7.jpg"><div class="ph" style="--img:url('exp-jaipur-beyond.jpg');--cap-op:0" data-cap="The Jaipur Beyond"></div></div><div class="sig-body"><div class="sig-idx">Jaipur</div><h3>The Jaipur Beyond</h3><p>A different side of the Pink City — its quiet lanes, hidden crafts and rooftop hours.</p></div></article>
+      <article class="sig-card"><div class="sig-media" data-slides="exp-craft.jpg,exp-craft-2.jpg,exp-craft-3.jpg,exp-craft-4.jpg,exp-craft-5.jpg,exp-craft-6.jpg,exp-craft-7.jpg"><div class="ph" style="--img:url('exp-craft.jpg');--cap-op:0" data-cap="Inside the Craft"></div></div><div class="sig-body"><div class="sig-idx">Culture</div><h3>Inside the Craft</h3><p>Meet the makers of Rajasthan — block printers, blue potters, miniature painters.</p></div></article>
+      <article class="sig-card"><div class="sig-media" data-slides="exp-food.jpg,exp-food-2.jpg,exp-food-3.jpg,exp-food-4.jpg,exp-food-5.jpg,exp-food-6.jpg,exp-food-7.jpg"><div class="ph" style="--img:url('exp-food.jpg');--cap-op:0" data-cap="A Taste of Rajasthan"></div></div><div class="sig-body"><div class="sig-idx">Culinary</div><h3>A Taste of Rajasthan</h3><p>Food, families and stories — a table, not a tour.</p></div></article>
+      <article class="sig-card"><div class="sig-media" data-slides="exp-temples.jpg,exp-temples-2.jpg,exp-temples-3.jpg,exp-temples-4.jpg,exp-temples-5.jpg,exp-temples-6.jpg,exp-temples-7.jpg"><div class="ph" style="--img:url('exp-temples.jpg');--cap-op:0" data-cap="Sacred Rajasthan"></div></div><div class="sig-body"><div class="sig-idx">Temples</div><h3>Sacred Rajasthan</h3><p>Centuries-old temples and stepwells — stone carving, ritual, and the quiet of hilltop shrines.</p></div></article>
+      <article class="sig-card"><div class="sig-media" data-slides="exp-bespoke.jpg,exp-bespoke-2.jpg,exp-bespoke-3.jpg,exp-bespoke-4.jpg,exp-bespoke-5.jpg,exp-bespoke-6.jpg,exp-bespoke-7.jpg"><div class="ph" style="--img:url('exp-bespoke.jpg');--cap-op:0" data-cap="Bespoke Rajasthan"></div></div><div class="sig-body"><div class="sig-idx">Bespoke</div><h3>Bespoke Rajasthan</h3><p>Built entirely around you — your pace, your interests, your Rajasthan.</p></div></article>
     </div>
   </div>
 </section>
@@ -295,6 +296,6 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
   WhatsApp
 </a>
 
-<script src="main.js"></script>
+<script src="main.js?v=3"></script>
 </body>
 </html>

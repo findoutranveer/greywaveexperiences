@@ -6,6 +6,59 @@
   var WA_NUMBER = "918400500528";
   function waLink(msg){ return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg); }
 
+  /* ---- hover slideshow on signature cards ----
+     Each .sig-media[data-slides] lists candidate images (comma-separated).
+     Images are lazy-loaded on first hover; any that 404 are skipped, so you
+     can list up to 7 names per card and only the ones you actually upload show.
+     Cross-fades every 1.6s while the cursor is over the card. ---- */
+  function initSlides(){
+    var medias = document.querySelectorAll(".sig-media[data-slides]");
+    Array.prototype.forEach.call(medias, function(media){
+      var list = (media.getAttribute("data-slides")||"").split(",")
+                   .map(function(x){return x.trim();}).filter(Boolean);
+      if(list.length < 2) return;
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if(reduce) return;
+      var layers = [], idx = 0, timer = null, built = false;
+      function build(cb){
+        var pending = list.length, any = false;
+        list.forEach(function(src){
+          var im = new Image();
+          im.onload = function(){
+            var d = document.createElement("div");
+            d.className = "slide";
+            d.style.backgroundImage = "url('" + src + "')";
+            media.appendChild(d); layers.push(d); any = true;
+            if(--pending === 0){ built = true; cb(any); }
+          };
+          im.onerror = function(){ if(--pending === 0){ built = true; cb(any); } };
+          im.src = src;
+        });
+      }
+      function run(){
+        if(layers.length < 2) return;
+        layers[0].classList.add("on"); idx = 0;
+        timer = setInterval(function(){
+          layers[idx].classList.remove("on");
+          idx = (idx + 1) % layers.length;
+          layers[idx].classList.add("on");
+        }, 1600);
+      }
+      function start(){
+        if(timer) return;
+        if(!built){ build(function(){ run(); }); }
+        else run();
+      }
+      function stop(){
+        clearInterval(timer); timer = null;
+        layers.forEach(function(l){ l.classList.remove("on"); });
+        idx = 0;
+      }
+      media.addEventListener("mouseenter", start);
+      media.addEventListener("mouseleave", stop);
+    });
+  }
+
   /* ---- intro splash (homepage only): plays once per session ---- */
   (function(){
     var intro = document.getElementById("intro");
@@ -30,6 +83,7 @@
   })();
 
   document.addEventListener("DOMContentLoaded", function(){
+    initSlides();
     var nav     = document.getElementById("nav");
     var burger  = document.getElementById("burger");
     var menu    = document.getElementById("mobileMenu");
