@@ -239,7 +239,7 @@ em{font-style:italic;color:var(--sepia)}
 .section-dark .step p{color:rgba(244,236,223,.66)}
 
 /* ---------- Founder ---------- */
-.founder{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(30px,5vw,72px);align-items:center}
+.founder{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(30px,5vw,72px);align-items:start}
 .founder .f-portrait{aspect-ratio:4/5;background:var(--sand-deep);position:relative;overflow:hidden;border:1px solid var(--line)}
 .founder .f-name{font-size:clamp(1.8rem,3vw,2.5rem);margin:14px 0 4px}
 .founder .f-role{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:22px}
@@ -562,3 +562,9 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
 .sig-media .slide{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;transition:opacity 1s var(--expo);z-index:1}
 .sig-media .slide.on{opacity:1}
 .sig-card:hover .ph{transform:scale(1.07)}  /* keep base zoom under slides */
+
+/* V3.1 — founder: top-align columns (no big gap on laptop) + uniform body text */
+.founder{align-items:start}
+.founder p{font-size:16px;line-height:1.8;color:#4a4038;margin-bottom:1em;max-width:62ch}
+.founder .lead{font-size:16px;line-height:1.8}
+#founder{scroll-margin-top:92px}
