@@ -600,3 +600,19 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
 .footer-bottom a:hover{color:var(--gold-soft)}
 /* founder body: explicit left alignment */
 .founder .f-name,.founder .f-role,.founder .eyebrow,.founder p,.founder .f-stats{text-align:left}
+
+/* V3.5 — homepage hero: hide header "Plan a Journey" over the video banner,
+   reveal it only after scroll (nav gets background). Desktop only
+   (.nav-cta is already hidden on mobile). */
+.nav-cta{transition:background .4s,color .4s,border-color .4s,opacity .45s var(--expo),transform .45s var(--expo)}
+.site-nav.over-media:not(.solid) .nav-cta{opacity:0;visibility:hidden;transform:translateY(-6px);pointer-events:none}
+
+/* V3.6 — journal article pages + index read links */
+.article{max-width:760px}
+.article .lead{font-size:clamp(1.05rem,1.6vw,1.24rem);line-height:1.72;color:#3f382f;margin:0 0 1.2em}
+.article p{font-size:16px;line-height:1.85;color:#4a4038;margin:0 0 1.15em;max-width:none}
+.article h3{font-size:clamp(1.15rem,1.9vw,1.45rem);margin:36px 0 12px;color:var(--charcoal)}
+.post h3 a{color:inherit;transition:color .3s}
+.post h3 a:hover{color:var(--gold)}
+.post-link{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sepia);font-weight:600;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid var(--line-gold);padding-bottom:4px;transition:color .3s;align-self:flex-start}
+.post-link:hover{color:var(--gold)}
