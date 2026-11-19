@@ -568,3 +568,35 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
 .founder p{font-size:16px;line-height:1.8;color:#4a4038;margin-bottom:1em;max-width:62ch}
 .founder .lead{font-size:16px;line-height:1.8}
 #founder{scroll-margin-top:92px}
+
+/* V3.2 — founder: image floats left, text wraps beside it then continues
+   full-width (left-aligned) once past the image bottom. Mobile stays stacked. */
+.founder{display:block}
+.founder::after{content:"";display:table;clear:both}
+.founder .f-portrait{float:left;width:38%;max-width:420px;margin:0 clamp(32px,4vw,60px) 22px 0}
+.founder > div:not(.f-portrait){min-width:0}
+@media(max-width:860px){
+  .founder .f-portrait{float:none;width:auto;max-width:none;margin:0 0 26px}
+}
+
+/* V3.3 — founder text fills full width beside + under the image (no measure cap) */
+.founder p{max-width:none}
+.founder > div:not(.f-portrait){max-width:none}
+
+/* V3.4 — Terms/legal page + footer Terms link + founder left-align */
+.legal{max-width:820px}
+.legal h2{font-size:clamp(1.3rem,2.2vw,1.7rem);margin:40px 0 14px;padding-top:26px;border-top:1px solid var(--line)}
+.legal h2:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.legal h3{font-size:1.1rem;margin:26px 0 10px;color:var(--charcoal)}
+.legal p{font-size:15.5px;line-height:1.8;color:#4a4038;margin:0 0 1em;max-width:none}
+.legal ul{margin:0 0 1.2em;padding-left:20px}
+.legal li{font-size:15.5px;line-height:1.75;color:#4a4038;margin-bottom:.5em}
+.legal a{color:var(--sepia);border-bottom:1px solid var(--line-gold)}
+.legal a:hover{color:var(--gold)}
+.legal-contact{margin-top:30px;padding:26px 28px;background:var(--sand);border:1px solid var(--line)}
+.legal-contact .lc-name{font-family:"Playfair Display",serif;font-size:1.25rem;margin-bottom:10px}
+.legal-contact p{margin:0}
+.footer-bottom a{color:inherit;border-bottom:1px solid rgba(217,195,155,.35);transition:color .3s}
+.footer-bottom a:hover{color:var(--gold-soft)}
+/* founder body: explicit left alignment */
+.founder .f-name,.founder .f-role,.founder .eyebrow,.founder p,.founder .f-stats{text-align:left}
