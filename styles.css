@@ -616,3 +616,7 @@ html.intro-lock,body.intro-lock{overflow:hidden!important}
 .post h3 a:hover{color:var(--gold)}
 .post-link{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sepia);font-weight:600;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid var(--line-gold);padding-bottom:4px;transition:color .3s;align-self:flex-start}
 .post-link:hover{color:var(--gold)}
+
+/* V3.7 — CTA band: stop heading/buttons overlap (heading may be .h1 or .h2) */
+.cta-band .h1,.cta-band .h2{max-width:22ch;margin-left:auto;margin-right:auto;margin-bottom:clamp(26px,3.6vw,40px)}
+.cta-band .lead{margin-top:0}
